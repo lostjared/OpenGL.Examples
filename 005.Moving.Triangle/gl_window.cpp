@@ -14,9 +14,6 @@ int glWindow::create(std::string name, int w, int h) {
     if(glewInit()!=GLEW_OK)
         exit(EXIT_FAILURE);
     glfwSwapInterval(1);
-    if(glewInit()!=GLEW_OK)
-        exit(EXIT_FAILURE);
-    glfwSwapInterval(1);
     init();
     return 1;
 }
