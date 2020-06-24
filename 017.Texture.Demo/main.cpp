@@ -236,9 +236,9 @@ public:
                 glActiveTexture(GL_TEXTURE0);
                 glBindTexture(GL_TEXTURE_2D, texture);
                 
-                color_alpha_r += rand()%5 * 0.01f;
-                color_alpha_g += rand()%5 * 0.01f;
-                color_alpha_b += rand()%5 * 0.01f;
+                color_alpha_r += (rand()%100) * 0.01f;
+                color_alpha_g += (rand()%100) * 0.01f;
+                color_alpha_b += (rand()%100) * 0.01f;
                 
                 if(color_alpha_r > 1)
                     color_alpha_r = 0.1f;
