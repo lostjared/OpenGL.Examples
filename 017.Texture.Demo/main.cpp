@@ -271,6 +271,12 @@ public:
         if(key == GLFW_KEY_ESCAPE)
             exit(EXIT_SUCCESS);
     }
+    
+    void resize(int newWidth, int newHeight) {
+        aspect = (float)newWidth / (float)newHeight;
+        glViewport(0, 0, newWidth, newHeight);
+        p_mat = glm::perspective(1.0472f, aspect, 0.1f, 1000.0f);
+    }
 };
 
 MainWindow main_window;
@@ -278,6 +284,10 @@ MainWindow main_window;
 void key_callback(GLFWwindow *window, int key, int scancode, int action, int mode) {
     main_window.keypress(key, scancode, action, mode);
     std::cout << "keypress: " << key << "\n";
+}
+
+void window_size_callback(GLFWwindow* win, int newWidth, int newHeight) {
+    main_window.resize(newWidth, newHeight);
 }
 
 int main(int argc, char **argv) {
@@ -295,6 +305,7 @@ int main(int argc, char **argv) {
     main_window.create("Cube Demo", 2560, 1440);
     std::cout << "GL Version: " << glGetString(GL_VERSION) << "\n";
     glfwSetKeyCallback(main_window.win(), key_callback);
+    glfwSetWindowSizeCallback(main_window.win(), window_size_callback);
     main_window.loop();
     return 0;
 }
