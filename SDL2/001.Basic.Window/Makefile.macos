@@ -2,8 +2,8 @@
 #generic Makefile for macOS
 
 OBJ=$(patsubst %.cpp,%.o,$(wildcard *.cpp))
-CFLAGS= -std=c++11 -O2 `pkg-config glfw3 glew --cflags` -DNO_SCREEN_GRAB
-LDFLAGS= `pkg-config glfw3 glew --libs` -framework OpenGL -framework Cocoa -framework IOKit
+CFLAGS= -std=c++11 -O2 `pkg-config sdl2 glew --cflags` -DNO_SCREEN_GRAB
+LDFLAGS= `pkg-config sdl2 glew --libs` -framework OpenGL -framework Cocoa -framework IOKit
 
 %.o: %.cpp
 	$(CXX) $(CFLAGS) $< -c -o $@
