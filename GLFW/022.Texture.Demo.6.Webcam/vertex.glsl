@@ -10,6 +10,9 @@ out float alpha_b;
 uniform mat4 mv_matrix;
 uniform mat4 proj_matrix;
 uniform float value_alpha_r, value_alpha_g, value_alpha_b;
+uniform int index;
+uniform float tf;
+
 
 uniform sampler2D samp;
 
